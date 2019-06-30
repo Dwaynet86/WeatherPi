@@ -8,4 +8,4 @@ humidity = null;
 db_user = "weathermonitor";
 db_password = "weather";
 db_name = "weather";
-db_table = "readings";
+db_host = "localhost";

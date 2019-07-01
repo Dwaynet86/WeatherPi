@@ -1,7 +1,8 @@
 #! /usr/bin/env python
-#Written by Dwayne Truex June 2019
-#Written for PiZeroW
-#Contact: dwaynetruex@yahoo.com
+
+# Written by Dwayne Truex June 2019
+# Written for PiZeroW
+# Contact: dwaynetruex@yahoo.com
 
 # This program was designed to read
 # multiple inputs for the purpose of 
@@ -34,13 +35,13 @@ luminance = null
 
 
 def read_sensors():
-  temperature = null
-  humidity = null
-  pressure = null
-  wind_speed = null
-  wind_direction = null
-  rain_drops = null
-  luminance = null
+  temperature
+  humidity
+  pressure
+  wind_speed
+  wind_direction
+  rain_drops
+  luminance
   
   return
 

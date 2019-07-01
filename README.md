@@ -6,7 +6,7 @@ Goals
   - temperature
   - humidity
   - windspeed
-  - barometric
+  - barometric pressure
   - wind direction
   - rain
   - luminance

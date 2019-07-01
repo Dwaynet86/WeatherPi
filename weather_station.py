@@ -1,22 +1,77 @@
+#! /usr/bin/env python
+#Written by Dwayne Truex June 2019
+#Written for PiZeroW
+#Contact: dwaynetruex@yahoo.com
+
+# This program was designed to read
+# multiple inputs for the purpose of 
+# monitoring and recording weather data
+
 # Main program for weather monitoring
 
 # Import any needed files
 
-from config import *
+from config import *  #Import configuration file
 from time import sleep # Import sleep Module for timing
+import RPi.GPIO as GPIO
+import pymysql # Import py to mysql connector
+
+# Setup GPIO Pins 
+
+GPIO.setmode(GPIO.BCM)  # Configures how we are describing our pin numbering
+GPIO.setwarnings(False)  # Disable Warnings
 
 
-# define 
+
+# define variables
+temperature = null
+humidity = null
+pressure = null
+wind_speed = null
+wind_direction = null
+rain_drops = null
+luminance = null
+
 
 def read_sensors():
-  # read temp
+  temperature = null
+  humidity = null
+  pressure = null
+  wind_speed = null
+  wind_direction = null
+  rain_drops = null
+  luminance = null
   
-  # read hum
+  return
+
   
 def store_readings():
-  # store readings in db for history
+  # Create a timestamp and store all readings on the MySQL database
   
-def open_db  
+  conn, curs = open_database_connection()
+  # curs.execute("INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);")
+  
+  curs.execute("INSERT INTO weather_data (temperature, humidity, wind_speed, wind_direction, pressure, luminance) VALUES (temperature, humidity, wind_speed, wind_direction, pressure, luminance);")
+  
+  # Verify 
+  #curs.execute("SELECT * FROM weather_data ORDER BY timestamp DESC LIMIT 1;")
+  
+  
+  close_database_connection(conn, curs)
+  return
+  
+def open_database_connection():
+  conn = pymysql.connect(db_host, db_user, db_password, db_name)
+  curs = conn.cursor()
+  curs.execute("SET sql_notes = 0; ")  # Hide Warnings
+
+  return conn, curs
+
+def close_database_connection(conn, curs):
+
+    curs.execute("SET sql_notes = 1; ")
+    conn.commit()
+    conn.close()
 
 #Main Loop
 while True: # Loop Continuously

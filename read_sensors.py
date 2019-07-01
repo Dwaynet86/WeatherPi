@@ -1,15 +1,12 @@
 #! /usr/bin/env python
 
+import OneWire
+
 # Functions for getting weather data from sensors
 
 def read_temperature():
   # temperature = read.temperature()
-  
-  return
-
-def read_humidity():
   # humidity = read.humidity()
-  
   return
   
 def read_wind():

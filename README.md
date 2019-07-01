@@ -11,6 +11,6 @@ Goals
   - rain
   - luminance
   - air quality
-  - camera
+- weather camera
 - record conditions to db locally 
 - connect to wunderground or similar public service 

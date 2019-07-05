@@ -10,7 +10,7 @@ def read_temperature():
   return
   
 def read_wind():
-  # wind_speed = read.wind()
+ # wind speed
   # wind_direction = read.direction()
   return
   

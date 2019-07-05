@@ -21,7 +21,7 @@ import pymysql # Import py to mysql connector
 
 GPIO.setmode(GPIO.BCM)  # Configures how we are describing our pin numbering
 GPIO.setwarnings(False)  # Disable Warnings
-
+relaycount = list(range(1, (len(outputpins) + 1)))
 
 
 # define variables
@@ -73,6 +73,28 @@ def close_database_connection(conn, curs):
     curs.execute("SET sql_notes = 1; ")
     conn.commit()
     conn.close()
+
+
+def create_database():
+
+    conn = pymysql.connect(db_host, db_user, db_password)
+    curs = conn.cursor()
+    curs.execute("SET sql_notes = 0; ")  # Hide Warnings
+
+    curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(dbname))
+
+    curs.execute("SET sql_notes = 1; ")  # Show Warnings
+    conn.commit()
+    
+    #curs = conn.cursor()
+    #curs.execute()
+    # Try to connect to table 
+    
+    conn.close()
+    return
+    
+# First run check if database exsists    
+
 
 #Main Loop
 while True: # Loop Continuously

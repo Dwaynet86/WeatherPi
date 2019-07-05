@@ -11,4 +11,3 @@ db_host     = "localhost"
 # User Options
 
 read_interval = 300  # Sensor Read Interval Time in Seconds 300 = 5 minutes
-outputpins = [22, 23, 24, 25]  # Specifiy a RPi GPIO Pin for each relay

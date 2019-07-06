@@ -21,7 +21,7 @@ import pymysql # Import py to mysql connector
 
 GPIO.setmode(GPIO.BCM)  # Configures how we are describing our pin numbering
 GPIO.setwarnings(False)  # Disable Warnings
-relaycount = list(range(1, (len(outputpins) + 1)))
+
 
 
 # define variables

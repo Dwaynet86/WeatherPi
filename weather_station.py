@@ -25,13 +25,13 @@ GPIO.setwarnings(False)  # Disable Warnings
 
 
 # define variables
-temperature = null
-humidity = null
-pressure = null
-wind_speed = null
-wind_direction = null
-rain_drops = null
-luminance = null
+temperature = 0
+humidity = 0
+pressure = 0
+wind_speed = 0
+wind_direction = "N"
+rain_drops = 0
+luminance = 0
 
 
 def read_sensors():

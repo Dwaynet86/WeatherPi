@@ -4,7 +4,7 @@
 
 db_user     = "weathermonitor"
 db_password = "weather"
-db_name     = "weather"
+db_name     = "weathermonitor"
 db_host     = "localhost"
 
 

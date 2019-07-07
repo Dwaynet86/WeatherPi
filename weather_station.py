@@ -81,7 +81,7 @@ def create_database():
     curs = conn.cursor()
     curs.execute("SET sql_notes = 0; ")  # Hide Warnings
 
-    curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(dbname))
+    curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
 
     curs.execute("SET sql_notes = 1; ")  # Show Warnings
     conn.commit()

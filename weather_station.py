@@ -93,13 +93,20 @@ def create_database():
     conn.close()
     return
     
-# First run check if database exsists    
-create_database()
-
+# First check if database exsists    
+try:
+    print ("Connecting to server...")
+    open_database_connection()
+    
+except:    
+    print ("Connection failed... Check credentials in config file and try again.")
+finally:
+    close_database_connection()
+  
 #Main Loop
 while True: # Loop Continuously
     
-    read_sensors() # poll sensor data
-    store_readings() # store data from sensors
+    #read_sensors() # poll sensor data
+    #store_readings() # store data from sensors
     
     sleep(10)

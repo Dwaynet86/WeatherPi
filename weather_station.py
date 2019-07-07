@@ -94,7 +94,7 @@ def create_database():
     return
     
 # First run check if database exsists    
-
+ create_database()
 
 #Main Loop
 while True: # Loop Continuously

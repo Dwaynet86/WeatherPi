@@ -103,6 +103,7 @@ def create_database():
       curs.execute("SET sql_notes = 1; ")  # Show Warnings
       conn.commit() 
       conn.close()
+      print ("Connection closed...")
       return
       
 create_database()     

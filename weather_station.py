@@ -16,6 +16,7 @@ from config import *  #Import configuration file
 from time import sleep # Import sleep Module for timing
 import RPi.GPIO as GPIO
 import pymysql # Import py to mysql connector
+from sys import exit
 
 # Setup GPIO Pins 
 

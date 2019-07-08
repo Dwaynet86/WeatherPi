@@ -109,7 +109,7 @@ def create_database():
       
 create_database()     
 
-print ("Quiting...Before entering loop")
+print ("Exiting...")
 exit()
 
 #Main Loop

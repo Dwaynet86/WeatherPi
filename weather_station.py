@@ -120,7 +120,7 @@ def create_database():
       
 def create_table():
   print ("Building tables")
-  curs.execute("CREATE TABLE IF NOT EXISTS weather_data";")
+  curs.execute("CREATE TABLE IF NOT EXISTS weather_data;")
               #"(id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
               #" timestamp TIMESTAMP NOT NULL,"
               #" temperature INT(3) NOT NULL,"

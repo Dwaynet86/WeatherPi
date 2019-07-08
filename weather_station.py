@@ -86,7 +86,7 @@ def create_database():
       curs.execute("SET sql_notes = 0; ")  # Hide Warnings
       
       print ("Connection established...") # Connection established let user know and keep going
-      print ("Verifying database...") # Check if db_name is real database
+      print ("Verifying database...{}".format(db_name))  # Check if db_name is real database
       
       try: # Connection open verify database exisists
         curs.execute("SHOW DATABASES;")

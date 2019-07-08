@@ -90,6 +90,7 @@ def create_database():
       try: # Connection open verify database exisists
         result = curs.execute("SHOW DATABASES;")
         print (result) # Show that the database does exsist
+        print (" Quiting...")
         quit()
       
       except: # Database does not exsist lets create it
@@ -110,5 +111,5 @@ while True: # Loop Continuously
     
     #read_sensors() # poll sensor data
     #store_readings() # store data from sensors
-    
+    print ("sleeping.....")
     sleep(10)

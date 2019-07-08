@@ -103,7 +103,7 @@ def create_database():
       
       # Sanity check
       print("HERE")
-      result = curs.execute("SHOW TABLES LIKE 'weather_data'")
+      result = curs.execute("SHOW TABLES FROM '{}' LIKE 'weather_data';".format(db_name))
       
       if result: # Table exists 
         print ("Found exsiting data..")

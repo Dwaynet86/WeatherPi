@@ -94,7 +94,7 @@ def create_database():
         #print ("Found {} Databases".format(result
         if result:  # Show that the database does exsist
           print ("Found database {}".format(db_name))
-          
+         curs.execute("SET sql_notes = 1; ")  # Show Warnings 
       except: # Database does not exsist lets create it
         print ("Database not found... Creating database {} now".format(db_name))
         curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
@@ -102,7 +102,7 @@ def create_database():
       print ("Connection failed... Check credentials in config file and try again.")
     
     finally: # Were done close the connection and move on
-      curs.execute("SET sql_notes = 1; ")  # Show Warnings
+      
       conn.commit() 
       conn.close()
       print ("Connection closed...")

@@ -3,7 +3,7 @@
 # Database credentials
 
 db_user     = "weathermonitor"
-db_password = "weather2"
+db_password = "weather"
 db_name     = "weathermonitor"
 db_host     = "localhost"
 

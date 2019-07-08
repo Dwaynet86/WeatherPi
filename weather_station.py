@@ -90,7 +90,8 @@ def create_database():
       
       try: # Connection open verify database exisists
         result = curs.execute("SHOW DATABASES;")
-        print (result) # Show that the database does exsist
+        result2 = curs.execute("SELECT schema_name FROM information_schema.schemata;")
+        print (result2) # Show that the database does exsist
         
       
       except: # Database does not exsist lets create it
@@ -103,11 +104,13 @@ def create_database():
       conn.commit() 
       conn.close()
       print ("Connection closed...")
-      print (" Quiting...")
-      exit()
+      
       
 create_database()     
-  
+
+print (" Quiting...Before enetering loop")
+exit()
+
 #Main Loop
 while True: # Loop Continuously
     

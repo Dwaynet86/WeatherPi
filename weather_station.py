@@ -108,6 +108,7 @@ def create_database():
       if result: # Table exists 
         print ("Found exsiting data..")
       else:
+        print("No existing data found")
         create_table()
       # Were done close the connection
       curs.execute("SET sql_notes = 1; ")  # Show Warnings

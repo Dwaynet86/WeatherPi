@@ -79,14 +79,14 @@ def close_database_connection(conn, curs):
 def create_database():    
     # First check if database exsists if not then create and populate
     try:  # Try to open connection to mysql server
-      print ("Connecting to server...")
+      #print ("Connecting to server...")
       
       conn = pymysql.connect(db_host, db_user, db_password) # Open the connection
       curs = conn.cursor()
       curs.execute("SET sql_notes = 0; ")  # Hide Warnings
       
       print ("Connection established...") # Connection established let user know and keep going
-      print ("Verifying database {} exsists...".format(db_name))  # Check if db_name is real database
+      #print ("Verifying database {} exsists...".format(db_name))  # Check if db_name is real database
       
       try: # Connection open verify database exisists
         result = curs.execute("SHOW DATABASES LIKE '{}';".format(db_name))
@@ -102,9 +102,9 @@ def create_database():
         create_table()
       
       # Sanity check
-      print("Sanity")
+      
       result = curs.execute("SHOW TABLES FROM {} LIKE 'weather_data';".format(db_name))
-      print ("Here")
+      
       if result: # Table exists 
         print ("Found exsiting data..")
       else:
@@ -119,7 +119,17 @@ def create_database():
 
       
 def create_table():
-  print("Building tables")
+  print ("Building tables")
+  curs.execute("CREATE TABLE IF NOT EXISTS weather_data ("
+               "id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
+               "temperature INT(3) NOT NULL,"
+               "humidity INT(2) NOT NULL,"
+               "wind_speed INT(3) NOT NULL,"
+               "wind_direction INT(3) NOT NULL,"
+               "pressure INT(3) NOT NULL,"
+               "luminance INT(3) NOT NULL);")
+  print ("Created table weather_data")
+  
       
 create_database()     
 

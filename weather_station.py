@@ -91,7 +91,7 @@ def create_database():
         result = curs.execute("SHOW DATABASES;")
         print (result) # Show that the database does exsist
         print (" Quiting...")
-        quit()
+        exit()
       
       except: # Database does not exsist lets create it
         curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))

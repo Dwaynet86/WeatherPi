@@ -75,33 +75,34 @@ def close_database_connection(conn, curs):
     conn.close()
 
 
-def create_database():
-
-    conn = pymysql.connect(db_host, db_user, db_password)
-    curs = conn.cursor()
-    curs.execute("SET sql_notes = 0; ")  # Hide Warnings
-
-    curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
-
-    curs.execute("SET sql_notes = 1; ")  # Show Warnings
-    conn.commit()
+def create_database():    
+    # First check if database exsists if not then create and populate
+    try:  # Try to open connection to mysql server
+      print ("Connecting to server...")
+      
+      conn = pymysql.connect(db_host, db_user, db_password) # Open the connection
+      curs = conn.cursor()
+      curs.execute("SET sql_notes = 0; ")  # Hide Warnings
+      
+      print ("Connection established...") # Connection established let user know and keep going
+      print ("Verifying database...") # Check if db_name is real database
+      
+      try: # Connection open verify database exisists
+        result = curs.execute("SHOW DATABASES LIKE 'db_name';")
+        print (result) # Show that the database does exsist
+        exit
+      except: # Database does not exsist lets create it
+        curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
+    except:    
+      print ("Connection failed... Check credentials in config file and try again.")
     
-    #curs = conn.cursor()
-    #curs.execute()
-    # Try to connect to table 
-    
-    conn.close()
-    return
-    
-# First check if database exsists    
-try:
-    print ("Connecting to server...")
-    open_database_connection()
-    
-except:    
-    print ("Connection failed... Check credentials in config file and try again.")
-finally:
-    close_database_connection()
+    finally: # Were done close the connection and move on
+      curs.execute("SET sql_notes = 1; ")  # Show Warnings
+      conn.commit() 
+      conn.close()
+      return
+      
+create_database()     
   
 #Main Loop
 while True: # Loop Continuously

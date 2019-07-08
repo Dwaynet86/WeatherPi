@@ -94,7 +94,7 @@ def create_database():
         #print ("Found {} Databases".format(result
         if result:  # Show that the database does exsist
           print ("Found database {}".format(db_name))
-         curs.execute("SET sql_notes = 1; ")  # Show Warnings 
+        curs.execute("SET sql_notes = 1; ")  # Show Warnings 
       except: # Database does not exsist lets create it
         print ("Database not found... Creating database {} now".format(db_name))
         curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))

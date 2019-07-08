@@ -91,8 +91,7 @@ def create_database():
       try: # Connection open verify database exisists
         result = curs.execute("SHOW DATABASES;")
         print (result) # Show that the database does exsist
-        print (" Quiting...")
-        exit()
+        
       
       except: # Database does not exsist lets create it
         curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
@@ -104,7 +103,8 @@ def create_database():
       conn.commit() 
       conn.close()
       print ("Connection closed...")
-      return
+      print (" Quiting...")
+      exit()
       
 create_database()     
   

@@ -120,7 +120,8 @@ def create_database():
       
 def create_table():
   print ("Building tables")
-  curs.execute("CREATE TABLE '{}'.'weather_data' ('id' INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY ('id'));".format(db_name))
+  #CREATE TABLE weathermonitor.weather_data (id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id));
+  curs.execute("CREATE TABLE {}.weather_data (id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id));".format(db_name))
               #" timestamp TIMESTAMP NOT NULL,"
               #" temperature INT(3) NOT NULL,"
               # " humidity INT(2) NOT NULL,"

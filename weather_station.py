@@ -55,7 +55,7 @@ def store_readings():
   try:
     localtime = datetime.datetime.now()
     # %Y = YYYY %m = Month(mm) %d = Day(dd)
-    reading_date = "{}/{}/{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
+    reading_date = "{}-{}-{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
     reading_time = localtime.strftime("%X")
     
     print ("{} {}".format(reading_time, reading_date))

@@ -55,8 +55,8 @@ def store_readings():
     print (time.time)
     curs.execute("INSERT INTO weather_data "
                "(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)"
-               " VALUES ({}, {}, {}, {}, {}, {}, {}, {});")
-               .format(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
+               " VALUES ({}, {}, {}, {}, {}, {}, {}, {});"
+               .format(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance))
   except Exception as ex:
     print ("Error storing readings: {}".format(ex))
     

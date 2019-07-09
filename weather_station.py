@@ -134,7 +134,7 @@ def create_table():
                " temperature INT(3) NOT NULL,"
                " humidity INT(2) NOT NULL,"
                " wind_speed INT(3) NOT NULL,"
-               " wind_direction INT(3) NOT NULL,"
+               " wind_direction VARCHAR(3) NOT NULL,"
                " pressure INT(3) NOT NULL,"
                " luminance INT(3) NOT NULL);".format(db_name))
   

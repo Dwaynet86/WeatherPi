@@ -77,54 +77,47 @@ def close_database_connection(conn, curs):
 
 
 def create_database():    
-    # First check if database exsists if not then create and populate
+    # First check if database exists if not then create and populate
     try:  # Try to open connection to mysql server
-      #print ("Connecting to server...")
-      
       conn = pymysql.connect(db_host, db_user, db_password) # Open the connection
       curs = conn.cursor()
       curs.execute("SET sql_notes = 0; ")  # Hide Warnings
       
       print ("Connection established...") # Connection established let user know and keep going
-      #print ("Verifying database {} exsists...".format(db_name))  # Check if db_name is real database
-      
-      try: # Connection open verify database exisists
+            
+      try: # Connection open, verify database exisists
         result = curs.execute("SHOW DATABASES LIKE '{}';".format(db_name))
         #result = curs.execute("SELECT schema_name FROM information_schema.schemata;")
-        print ("Found {} Databases".format(result))
+        #print ("Found {} Databases".format(result))
         
         if result:  # Show that the database does exsist
           print ("Found database {}".format(db_name))
         elif not result:
           print ("Database not found... Creating database {} now".format(db_name))
-          curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
-          create_table()
-          
+          curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))          
       except Exception as ex: # Database does not exsist lets create it
         print ("Error: {}".format(ex))
       
-      # Sanity check
-      
-      result = curs.execute("SHOW TABLES FROM {} LIKE 'weather_data';".format(db_name))
-      
-      if result <> 0: # Table exists 
-        print ("Found exsiting data..")
-      else:
-        print("No existing data found")
-        create_table()
+     
       # Were done close the connection
       curs.execute("SET sql_notes = 1; ")  # Show Warnings
       conn.commit() 
       conn.close()
-      print ("Connection closed...")
+      #print ("Connection closed...")
     except Exception as ex:    
       print ("Error: {}".format(ex))      
 
       
 def create_table():
-  print ("Building tables")
-  #CREATE TABLE weathermonitor.weather_data (id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id));
-  curs.execute("CREATE TABLE {}.weather_data (id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id));".format(db_name))
+   # Check if tables exist if not create them
+      try: 
+        result = curs.execute("SHOW TABLES FROM {} LIKE 'weather_data';".format(db_name))
+      
+        if result <> 0: # Table exists 
+          print ("Found exsiting data..")
+        else:
+          print ("Building tables")
+          curs.execute("CREATE TABLE {}.weather_data (id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id));".format(db_name))
               #" timestamp TIMESTAMP NOT NULL,"
               #" temperature INT(3) NOT NULL,"
               # " humidity INT(2) NOT NULL,"
@@ -133,10 +126,15 @@ def create_table():
               # " pressure INT(3) NOT NULL,"
               # " luminance INT(3) NOT NULL);")
   
-  print ("Created table weather_data")
-  
+          print ("Created table weather_data")
+      except Exception as ex:
+        print ("Error: {}".format(ex))
+
       
 create_database()     
+open_database_connection()
+create_table()
+
 
 print ("Exiting...")
 exit()

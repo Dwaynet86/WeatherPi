@@ -93,8 +93,10 @@ def create_database():
         #result = curs.execute("SELECT schema_name FROM information_schema.schemata;")
         print ("Found {} Databases".format(result))
         
-        if result == 0:  # Show that the database does exsist
+        if result:  # Show that the database does exsist
           print ("Found database {}".format(db_name))
+        elif not result:
+          print ("not")
           
       except: # Database does not exsist lets create it
         print ("Database not found... Creating database {} now".format(db_name))

@@ -149,7 +149,7 @@ conn, curs = open_database_connection()
 create_table()
 close_database_connection(conn, curs)
 
-print ("Weather Station started... Begin sensor reading ")
+print ("Weather Station started succesfully... Begin collecting data ")
 loop = 0
 #Main Loop
 while True: # Loop Continuously

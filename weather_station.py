@@ -158,7 +158,7 @@ while True: # Loop Continuously
     store_readings() # store data from sensors
     loop += 1
     if loop == 10: break
-    print ("Reading sensors {}".format(loop))
+    #print ("Reading sensors {}".format(loop))
     sleep(1)
     
 print ("Exiting...")

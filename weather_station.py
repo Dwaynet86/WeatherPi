@@ -132,7 +132,7 @@ def create_table():
 
       
 create_database()     
-open_database_connection()
+conn, curs = open_database_connection()
 create_table()
 
 

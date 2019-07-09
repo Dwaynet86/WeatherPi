@@ -101,7 +101,7 @@ def create_database():
           create_table()
           
       except Exception as ex: # Database does not exsist lets create it
-        print (ex)
+        print ("Error: {}".format(ex))
       
       # Sanity check
       
@@ -118,7 +118,7 @@ def create_database():
       conn.close()
       print ("Connection closed...")
     except Exception as ex:    
-      print (ex)      
+      print ("Error: {}".format(ex))      
 
       
 def create_table():

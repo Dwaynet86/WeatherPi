@@ -100,8 +100,8 @@ def create_database():
           curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
           create_table()
           
-      except: # Database does not exsist lets create it
-        print ("Error finding database")
+      except exception as ex: # Database does not exsist lets create it
+        print (ex)
       
       # Sanity check
       
@@ -117,8 +117,8 @@ def create_database():
       conn.commit() 
       conn.close()
       print ("Connection closed...")
-    except:    
-      print ("Connection failed... Check credentials in config file and try again.")      
+    except exception as ex:    
+      print (ex)      
 
       
 def create_table():

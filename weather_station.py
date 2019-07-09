@@ -130,7 +130,8 @@ def create_table():
           print ("Created table weather_data")
       except Exception as ex:
         print ("Error creating table: {}".format(ex))
-
+      
+     
       
 create_database()     
 conn, curs = open_database_connection()

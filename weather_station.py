@@ -135,7 +135,7 @@ def create_table():
 create_database()     
 conn, curs = open_database_connection()
 create_table()
-
+close_database_connection()
 
 print ("Exiting...")
 exit()

@@ -54,8 +54,8 @@ def store_readings():
   conn, curs = open_database_connection()
   try:
     localtime = datetime.datetime.now()
-    
-    reading_date = localtime.strftime("%x")
+    # %Y = YYYY %m = Month(mm) %d = Day(dd)
+    reading_date = "{}/{}/{}".format(localtime.strftime("%Y"), localtime.strftime("%Y"), localtime.strftime("%Y"))
     reading_time = localtime.strftime("%X")
     
     print ("{} {}".format(reading_time, reading_date))

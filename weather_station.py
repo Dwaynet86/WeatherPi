@@ -13,7 +13,7 @@
 # Import any needed files
 
 from config import *  #Import configuration file
-from time import sleep # Import sleep Module for timing
+import time # Import time Module 
 import RPi.GPIO as GPIO
 import pymysql # Import py to mysql connector
 from sys import exit
@@ -51,14 +51,15 @@ def store_readings():
   # Create a timestamp and store all readings on the MySQL database
   
   conn, curs = open_database_connection()
-  # curs.execute("INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);")
-  
-  curs.execute("INSERT INTO weather_data (temperature, humidity, wind_speed, wind_direction, pressure, luminance) VALUES (temperature, humidity, wind_speed, wind_direction, pressure, luminance);")
-  
-  # Verify 
-  #curs.execute("SELECT * FROM weather_data ORDER BY timestamp DESC LIMIT 1;")
-  
-  
+  try:
+    print (time.time)
+    curs.execute("INSERT INTO weather_data "
+               "(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)"
+               " VALUES ({}, {}, {}, {}, {}, {}, {}, {});")
+               .format(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
+  except Exception as ex:
+    print ("Error storing readings: {}".format(ex))
+    
   close_database_connection(conn, curs)
   return
   
@@ -120,9 +121,9 @@ def create_table():
           curs.execute("CREATE TABLE {}.weather_data "
                "(id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id),"
                " timestamp TIMESTAMP NOT NULL,"
-               " temperature INT(3) NOT NULL,"
                " reading_date DATE NOT NULL,"
                " reading_time TIME NOT NULL,"
+               " temperature INT(3) NOT NULL,"
                " humidity INT(2) NOT NULL,"
                " wind_speed INT(3) NOT NULL,"
                " wind_direction INT(3) NOT NULL,"

@@ -96,12 +96,12 @@ def create_database():
         if result:  # Show that the database does exsist
           print ("Found database {}".format(db_name))
         elif not result:
-          print ("not")
+          print ("Database not found... Creating database {} now".format(db_name))
+          curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
+          create_table()
           
       except: # Database does not exsist lets create it
-        print ("Database not found... Creating database {} now".format(db_name))
-        curs.execute("CREATE DATABASE IF NOT EXISTS {}".format(db_name))
-        create_table()
+        print ("Error finding database")
       
       # Sanity check
       

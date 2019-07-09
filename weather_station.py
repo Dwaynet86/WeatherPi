@@ -121,6 +121,8 @@ def create_table():
                "(id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id),"
                " timestamp TIMESTAMP NOT NULL,"
                " temperature INT(3) NOT NULL,"
+               " reading_date DATE NOT NULL,"
+               " reading_time TIME NOT NULL,"
                " humidity INT(2) NOT NULL,"
                " wind_speed INT(3) NOT NULL,"
                " wind_direction INT(3) NOT NULL,"
@@ -138,13 +140,16 @@ conn, curs = open_database_connection()
 create_table()
 close_database_connection(conn, curs)
 
-print ("Exiting...")
-exit()
+print ("Weather Station started... Begin sensor reading ")
 
 #Main Loop
 while True: # Loop Continuously
     
     #read_sensors() # poll sensor data
     #store_readings() # store data from sensors
-    print ("sleeping.....")
-    sleep(10)
+    loop =+ 1
+    if loop == 10: return
+    print ("Reading sensors {}".format(loop))
+    sleep(1)
+print ("Exiting...")
+exit()

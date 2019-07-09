@@ -141,15 +141,16 @@ create_table()
 close_database_connection(conn, curs)
 
 print ("Weather Station started... Begin sensor reading ")
-
+loop = 0
 #Main Loop
 while True: # Loop Continuously
     
     #read_sensors() # poll sensor data
     #store_readings() # store data from sensors
-    loop ++
+    
     if loop == 10: break
     print ("Reading sensors {}".format(loop))
     sleep(1)
+    loop += 1
 print ("Exiting...")
 exit()

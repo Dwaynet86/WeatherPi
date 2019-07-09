@@ -58,7 +58,7 @@ def store_readings():
     reading_date = localtime.strftime("%x")
     reading_time = localtime.strftime("%X")
     
-    print ("{}".format(localtime))
+    print ("{} {}".format(reading_time, reading_date))
     
     curs.execute("INSERT INTO weather_data "
                "(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)"

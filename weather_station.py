@@ -14,7 +14,7 @@
 
 from config import *  #Import configuration file
 from time import sleep # Import sleep from time Module 
-import time # Import time
+import datetime # Import time
 import RPi.GPIO as GPIO
 import pymysql # Import py to mysql connector
 from sys import exit
@@ -53,7 +53,10 @@ def store_readings():
   
   conn, curs = open_database_connection()
   try:
-    print (time.time)
+    localtime = datetime.datetime.now()
+    
+    print ("{}".format(localtime))
+    
     curs.execute("INSERT INTO weather_data "
                "(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)"
                " VALUES ({}, {}, {}, {}, {}, {}, {}, {});"

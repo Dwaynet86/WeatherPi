@@ -117,14 +117,15 @@ def create_table():
           print ("Found exsiting data..")
         else:
           print ("Building tables")
-          curs.execute("CREATE TABLE {}.weather_data (id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id));".format(db_name))
-              #" timestamp TIMESTAMP NOT NULL,"
-              #" temperature INT(3) NOT NULL,"
-              # " humidity INT(2) NOT NULL,"
-              # " wind_speed INT(3) NOT NULL,"
-              # " wind_direction INT(3) NOT NULL,"
-              # " pressure INT(3) NOT NULL,"
-              # " luminance INT(3) NOT NULL);")
+          curs.execute("CREATE TABLE {}.weather_data "
+               "(id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id),"
+               " timestamp TIMESTAMP NOT NULL,"
+               " temperature INT(3) NOT NULL,"
+               " humidity INT(2) NOT NULL,"
+               " wind_speed INT(3) NOT NULL,"
+               " wind_direction INT(3) NOT NULL,"
+               " pressure INT(3) NOT NULL,"
+               " luminance INT(3) NOT NULL);".format(db_name))
   
           print ("Created table weather_data")
       except Exception as ex:

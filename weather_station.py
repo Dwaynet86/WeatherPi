@@ -13,7 +13,8 @@
 # Import any needed files
 
 from config import *  #Import configuration file
-from time import * # Import time Module 
+from time import sleep # Import sleep from time Module 
+import time # Import time
 import RPi.GPIO as GPIO
 import pymysql # Import py to mysql connector
 from sys import exit

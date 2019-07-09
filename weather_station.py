@@ -147,7 +147,7 @@ loop = 0
 while True: # Loop Continuously
     
     #read_sensors() # poll sensor data
-    #store_readings() # store data from sensors
+    store_readings() # store data from sensors
     loop += 1
     if loop == 10: break
     print ("Reading sensors {}".format(loop))

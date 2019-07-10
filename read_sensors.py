@@ -10,9 +10,13 @@ import Adafruit_DHT
 def read_temperature():
   sensor = Adafruit_DHT.DHT22
   pin = 4
-  humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-  print (temperature, humidity)
-  print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
+  humidity_raw, temperature_raw = Adafruit_DHT.read_retry(sensor, pin)
+  if humidity_raw is not None and temperature_raw is not None:
+    # Convert to F from C
+    temperature_new = temperature_raw * 1.8 + 32
+    print('Temp={0:0.1f}*F  Humidity={1:0.1f}%'.format(temperature, humidity))
+  else:
+    print('Failed to get reading from DHT22. Using previous readings.')
   return
   
 def read_wind():

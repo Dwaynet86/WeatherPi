@@ -1,12 +1,16 @@
 #! /usr/bin/env python
 
 import OneWire
+import Adafruit_DHT
+
+
 
 # Functions for getting weather data from sensors
 
 def read_temperature():
-  # temperature = read.temperature()
-  # humidity = read.humidity()
+  sensor = Adafruit_DHT.DHT11
+  pin = 4
+  humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
   return
   
 def read_wind():

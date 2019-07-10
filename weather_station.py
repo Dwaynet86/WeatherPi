@@ -13,6 +13,7 @@
 # Import any needed files
 
 from config import *  #Import configuration file
+from read_sensors import * # Import all sensor functions
 from time import sleep # Import sleep from time Module 
 import datetime # Import time
 import RPi.GPIO as GPIO

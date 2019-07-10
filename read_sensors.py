@@ -14,9 +14,11 @@ def read_temperature():
   if humidity_raw is not None and temperature_raw is not None:
     # Convert to F from C
     temperature_new = temperature_raw * 1.8 + 32
-    humidity_new = humidity_raw
-    print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature_raw, humidity_raw))
+    humidity_new = round(humidity_raw,1)
+    print (humidity_raw, humidity_new)
     print('Temp={0:0.1f}*F  Humidity={1:0.1f}%'.format(temperature_new, humidity_new))
+    if humidity
+    
   else:
     print('Failed to get reading from DHT22. Using previous readings.')
   return

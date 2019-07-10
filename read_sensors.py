@@ -15,7 +15,7 @@ def read_temperature():
     # Convert to F from C
     temperature_new = temperature_raw * 1.8 + 32
     humidity_new = round(humidity_raw,1)
-    print (humidity_raw, humidity_new)
+    print (humidity_raw, humidity_new, temperature_raw, temperature_new)
     print('Temp={0:0.1f}*F  Humidity={1:0.1f}%'.format(temperature_new, humidity_new))
     
     

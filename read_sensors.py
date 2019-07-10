@@ -8,7 +8,7 @@ import Adafruit_DHT
 # Functions for getting weather data from sensors
 
 def read_temperature():
-  sensor = Adafruit_DHT.DHT11
+  sensor = Adafruit_DHT.DHT22
   pin = 4
   humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
   print (temperature, humidity)

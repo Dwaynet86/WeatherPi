@@ -17,7 +17,9 @@ def read_temperature():
     humidity_new = round(humidity_raw,1)
     print (humidity_raw, humidity_new)
     print('Temp={0:0.1f}*F  Humidity={1:0.1f}%'.format(temperature_new, humidity_new))
-    if humidity
+    if humidity_new is not humidity:
+      humidity = humidity_new
+    
     
   else:
     print('Failed to get reading from DHT22. Using previous readings.')

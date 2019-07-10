@@ -137,7 +137,7 @@ create_table()
 close_database_connection(conn, curs)
 
 print ("Weather Station started succesfully... Begin collecting data ")
-loop = 0
+loop = read_interval
 #Main Loop
 while True: # Loop Continuously
     sleep(1)

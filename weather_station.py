@@ -28,6 +28,8 @@ GPIO.setwarnings(False)  # Disable Warnings
 
 
 # define variables
+reading_date = "01/01/0000"
+reading_time = "00:00"
 temperature = 0
 humidity = 0
 pressure = 0
@@ -44,14 +46,7 @@ def store_readings():
   # Create a timestamp and store all readings on the MySQL database
   
   conn, curs = open_database_connection()
-  try:
-    localtime = datetime.datetime.now()
-    # %Y = YYYY %m = Month(mm) %d = Day(dd)
-    reading_date = "{}-{}-{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
-    reading_time = localtime.strftime("%X")
-    
-    print ("{} {}".format(reading_time, reading_date))
-    
+  try:   
     curs.execute("INSERT INTO weather_data "
                "(reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)"
                " VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');"
@@ -145,12 +140,17 @@ print ("Weather Station started succesfully... Begin collecting data ")
 loop = 0
 #Main Loop
 while True: # Loop Continuously
+    localtime = datetime.datetime.now()
+    # %Y = YYYY %m = Month(mm) %d = Day(dd)
+    reading_date = "{}-{}-{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
+    reading_time = localtime.strftime("%X")
     
-    read_temperature() # poll sensor data
+    print ("{} {}".format(reading_time, reading_date))
+    humidity, temperature = read_temperature() # poll sensor data
     #store_readings() # store data from sensors
     loop += 1
     if loop == 10: break
-    #print ("Reading sensors {}".format(loop))
+    print (reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
     sleep(5)
     
 print ("Exiting...")

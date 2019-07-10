@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import OneWire
+#import OneWire
 import Adafruit_DHT
 
 

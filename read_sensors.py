@@ -16,7 +16,7 @@ def read_temperature():
     temperature_new = round(temperature_raw * 1.8 + 32, 1)
     humidity_new = round(humidity_raw, 1)
     
-    print('Temp={0:0.1f}*F  Humidity={1:0.1f}%'.format(temperature_new, humidity_new)) # for demo only
+    #print('Temp={0:0.1f}*F  Humidity={1:0.1f}%'.format(temperature_new, humidity_new)) # for demo only
     
     
     

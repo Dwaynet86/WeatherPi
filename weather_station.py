@@ -37,7 +37,7 @@ wind_speed = 0
 wind_direction = "N"
 rain_drops = 0
 luminance = 0
-
+last_reading = "00:00"
 
 
 
@@ -140,18 +140,22 @@ print ("Weather Station started succesfully... Begin collecting data ")
 loop = 0
 #Main Loop
 while True: # Loop Continuously
-    localtime = datetime.datetime.now()
-    # %Y = YYYY %m = Month(mm) %d = Day(dd)
-    reading_date = "{}-{}-{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
-    reading_time = localtime.strftime("%X")
+    sleep(1)
+    if loop == read_interval:
+      loop = 0
+      localtime = datetime.datetime.now()
+      # %Y = YYYY %m = Month(mm) %d = Day(dd)
+      reading_date = "{}-{}-{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
+      reading_time = localtime.strftime("%X")
+
+      humidity, temperature = read_temperature()
+      store_readings() # store data from sensors
+      print("Storing Data")
+      print (reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
     
-    print ("{} {}".format(reading_time, reading_date))
-    humidity, temperature = read_temperature() # poll sensor data
-    #store_readings() # store data from sensors
     loop += 1
-    if loop == 10: break
-    print (reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
-    sleep(5)
+    
+    
     
 print ("Exiting...")
 exit()

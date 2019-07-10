@@ -36,16 +36,7 @@ rain_drops = 0
 luminance = 0
 
 
-def read_sensors():
-  temperature
-  humidity
-  pressure
-  wind_speed
-  wind_direction
-  rain_drops
-  luminance
-  
-  return
+
 
   
 def store_readings():
@@ -154,12 +145,12 @@ loop = 0
 #Main Loop
 while True: # Loop Continuously
     
-    #read_sensors() # poll sensor data
-    store_readings() # store data from sensors
+    read_temperature() # poll sensor data
+    #store_readings() # store data from sensors
     loop += 1
     if loop == 10: break
     #print ("Reading sensors {}".format(loop))
-    sleep(1)
+    sleep(5)
     
 print ("Exiting...")
 exit()

@@ -2,7 +2,7 @@
 
 #import OneWire
 import Adafruit_DHT
-
+from gpiozero import LightSensor
 
 
 # Functions for getting weather data from sensors
@@ -23,7 +23,15 @@ def read_temperature():
   else:
     print('Failed to get reading from DHT22. Using previous readings.')
   return (humidity_new, temperature_new)
+
+def read_light():
+  ldr = LightSensor(17)  # alter if using a different pin
+  while True:
+    print(ldr.value)
   
+  
+  return
+
 def read_wind():
  # wind speed
   # wind_direction = read.direction()

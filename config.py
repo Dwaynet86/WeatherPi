@@ -10,4 +10,4 @@ db_host     = "localhost"
 
 # User Options
 
-read_interval = 300  # Sensor Read Interval Time in Seconds 300 = 5 minutes
+read_interval = 30  # Sensor Read Interval Time in Seconds 300 = 5 minutes

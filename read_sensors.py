@@ -26,8 +26,7 @@ def read_temperature():
 
 def read_light():
   ldr = LightSensor(17)  # alter if using a different pin
-  while True:
-    print(ldr.value)
+  print(ldr.value)
   
   
   return (ldr.value)

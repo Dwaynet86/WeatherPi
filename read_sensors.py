@@ -30,7 +30,7 @@ def read_light():
     print(ldr.value)
   
   
-  return
+  return (ldr.value)
 
 def read_wind():
  # wind speed

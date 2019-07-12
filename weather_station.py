@@ -148,7 +148,7 @@ while True: # Loop Continuously
       reading_date = "{}-{}-{}".format(localtime.strftime("%Y"), localtime.strftime("%m"), localtime.strftime("%d"))
       reading_time = localtime.strftime("%X")
 
-      humidity, temperature = read_temperature()
+      #humidity, temperature = read_temperature()
       luminance = read_light()
       #store_readings() # store data from sensors
       print("Storing Data")

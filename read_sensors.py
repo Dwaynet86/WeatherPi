@@ -25,7 +25,7 @@ def read_light():
   for x in range (0, 8):
     ldr = MCP3008(channel = x)
     print ("{} : {}" .format(x,ldr.value))
-    
+    print (ldr.raw_value)
   return (ldr.value)
 
 def read_wind():

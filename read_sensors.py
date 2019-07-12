@@ -24,7 +24,7 @@ def read_light():
   #ldr = LightSensor(light_pin)  # alter if using a different pin
   for x in range (0, 8):
     ldr = MCP3008(channel = x)
-    print ("{} : " .format(ldr.value))
+    print ("{} : {}" .format(x,ldr.value))
     
   return (ldr.value)
 

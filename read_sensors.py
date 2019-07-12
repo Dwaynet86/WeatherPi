@@ -2,7 +2,7 @@
 
 #import OneWire
 import Adafruit_DHT
-from gpiozero import LightSensor
+from gpiozero import LightSensor, MCP3008
 
 
 # Functions for getting weather data from sensors
@@ -20,9 +20,12 @@ def read_temperature():
   return (humidity_new, temperature_new)
 
 def read_light():
-  ldr = LightSensor(light_pin)  # alter if using a different pin
-   
-  return (ldr.value)
+  #ldr = LightSensor(light_pin)  # alter if using a different pin
+  for x in range (10):
+    ldr = MCP3008(7)
+    print (ldr.value)
+    
+  return (ldr)
 
 def read_wind():
  # wind speed

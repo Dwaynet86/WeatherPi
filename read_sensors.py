@@ -11,7 +11,7 @@ from gpiozero import LightSensor, MCP3008
 def read_temperature():
   sensor = Adafruit_DHT.DHT22
   #pin = 4
-  humidity_raw, temperature_raw = Adafruit_DHT.read_retry(sensor, temperature_pin)
+  humidity_raw, temperature_raw = Adafruit_DHT.read_retry(sensor, config.temperature_pin)
   if humidity_raw is not None and temperature_raw is not None:
     # Convert to F from C and drop excess after decimal
     temperature_new = round(temperature_raw * 1.8 + 32, 1) # Convert to farenheit then round value to 1 decimal place

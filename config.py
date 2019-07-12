@@ -2,20 +2,20 @@
 
 # Database credentials
 
-db_user     = "weathermonitor"
-db_password = "weather"
-db_name     = "weathermonitor"
-db_host     = "localhost"
+global db_user     = "weathermonitor"
+global db_password = "weather"
+global db_name     = "weathermonitor"
+global db_host     = "localhost"
 
 
 # User Options
 
-read_interval = 30  # Sensor Read Interval Time in Seconds 300 = 5 minutes
+global read_interval = 30  # Sensor Read Interval Time in Seconds 300 = 5 minutes
 
 
 # define pins used
 
-temperature_pin = 4
+global temperature_pin = 4
 #light  _pin = 17
 #windspeed_pin = 
 #winddirection_pin =

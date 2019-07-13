@@ -20,23 +20,21 @@ def read_temperature():
     print('Failed to get reading from DHT22. Using previous readings.')
   return (humidity_new, temperature_new)
 
-def read_light(pin):
+
+
+def read_adc(pin):
   #ldr = LightSensor(light_pin)  # alter if using a different pin
   
   ldr = MCP3008(channel = pin)
   print ("reading pin {}: {}" .format(pin, ldr.value))
   print (ldr.raw_value)
+  
+  
+  
+  
   return (ldr.raw_value)
 
-def read_wind():
- # wind speed
-  # wind_direction = read.direction()
-  return
-  
-def read_precipitation():
-  # is_raining = read.()
-  # rain_drops = 
-  return
+
   
 def read_air_quality():
   # air_quality  = read.()

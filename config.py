@@ -16,7 +16,7 @@ read_interval = 10  # Sensor Read Interval Time in Seconds 300 = 5 minutes
 # define pins used
 
 temperature_pin = 4
-#light  _pin = 17
+adc_light_pin = 0
 #windspeed_pin = 
 #winddirection_pin =
 #rain_pin =

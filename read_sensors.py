@@ -20,11 +20,11 @@ def read_temperature():
     print('Failed to get reading from DHT22. Using previous readings.')
   return (humidity_new, temperature_new)
 
-def read_light():
+def read_light(pin):
   #ldr = LightSensor(light_pin)  # alter if using a different pin
-  global config.adc_light_pin
-  ldr = MCP3008(channel = adc_light_pin)
-  print ("reading pin {}: {}" .format(adc_light_pin, ldr.value))
+  
+  ldr = MCP3008(channel = pin)
+  print ("reading pin {}: {}" .format(pin, ldr.value))
   print (ldr.raw_value)
   return (ldr.raw_value)
 

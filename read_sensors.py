@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 #import OneWire
-import config
+#import config
 import Adafruit_DHT
 from gpiozero import LightSensor, MCP3008
 

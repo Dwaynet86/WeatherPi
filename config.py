@@ -13,10 +13,11 @@ db_host     = "localhost"
 read_interval = 10  # Sensor Read Interval Time in Seconds 300 = 5 minutes
 
 
-# define pins used
-
+# define pins used on pi
 temperature_pin = 4
+
+# define pins used on mcp3008
 adc_light_pin = 0
-#windspeed_pin = 
-#winddirection_pin =
-#rain_pin =
+adc_windspeed_pin = 1
+adc_winddirection_pin = 2
+adc_rain_pin = 3

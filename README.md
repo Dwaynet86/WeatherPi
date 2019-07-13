@@ -3,13 +3,13 @@ Home Weather Station
 
 Goals
 - monitor outside conditions
-  x temperature
-  x humidity
+  - temperature (added)
+  - humidity (added)
   - windspeed
   - barometric pressure
   - wind direction
   - rain
-  x luminance
+  - luminance (added)
   - air quality
 - weather camera
 - record conditions to db locally 

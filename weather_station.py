@@ -110,7 +110,7 @@ def create_table():
         result = curs.execute("SHOW TABLES FROM {} LIKE 'weather_data';".format(db_name))
       
         if result <> 0: # Table exists 
-          print ("Found exsiting data..")
+          print ("Found exsiting table..")
         else:
           print ("Building tables")
           curs.execute("CREATE TABLE {}.weather_data "

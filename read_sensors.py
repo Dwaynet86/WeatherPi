@@ -23,9 +23,9 @@ def read_temperature():
 def read_light():
   #ldr = LightSensor(light_pin)  # alter if using a different pin
   
-    ldr = MCP3008(channel = adc_light_pin)
-    print ("reading pin {}: {}" .format(adc_light_pin, ldr.value))
-    print (ldr.raw_value)
+  ldr = MCP3008(channel = adc_light_pin)
+  print ("reading pin {}: {}" .format(adc_light_pin, ldr.value))
+  print (ldr.raw_value)
   return (ldr.raw_value)
 
 def read_wind():

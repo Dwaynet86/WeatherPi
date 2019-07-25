@@ -26,12 +26,7 @@ def read_adc(pin):
   #ldr = LightSensor(light_pin)  # alter if using a different pin
   
   ldr = MCP3008(channel = pin)
-  print ("reading pin {}: {}" .format(pin, ldr.value))
-  print (ldr.raw_value)
-  
-  
-  
-  
+    
   return (ldr.raw_value)
 
 

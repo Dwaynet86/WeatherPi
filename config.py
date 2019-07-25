@@ -10,7 +10,7 @@ db_host     = "localhost"
 
 # User Options
 
-read_interval = 10  # Sensor Read Interval Time in Seconds 300 = 5 minutes
+read_interval = 300  # Sensor Read Interval Time in Seconds 300 = 5 minutes
 
 
 # define pins used on pi

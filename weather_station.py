@@ -109,8 +109,11 @@ def create_table():
       try: 
         result = curs.execute("SHOW TABLES FROM {} LIKE 'weather_data';".format(db_name))
       
-        if result == 0: # Table does not exist 
-          print ("Building tables")
+        if result <> 0: # Table exists 	        
+          #print ("Found exsiting table..")
+          return
+        else: # Table does not exist 
+          #print ("Building table")
           curs.execute("CREATE TABLE {}.weather_data "
                "(id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id),"
                " timestamp TIMESTAMP NOT NULL,"
@@ -126,12 +129,35 @@ def create_table():
           print ("Created table weather_data")
       except Exception as ex:
         print ("Error creating table: {}".format(ex))
+        
+        
+def create_settings_table():
+  # Create a table to store settings changes
+  try:
+    result = curs.execute("SHOW TABLES FROM {} LIKE 'settings';".format(db_name))
+    
+    if result <> 0: # Table exists 
+          #print ("Found exsiting table..")
+        return
+    else:
+     curs.execute("CREATE TABLE {}.settings "
+                  "(setting_name VARCHAR(25) NOT NULL,"
+                  " setting_value VARCHAR(25) NOT NULL,"
+                  " setting_descrption VARCHAR(255) NOT NULL,"
+                  " PRIMARY KEY (setting_name);".format(db_name))
+     # Add default setting data
       
-     
+      
+      
+     print ("Created table settings")
+  except Exception as ex:
+      print ("Error creating table: {}".format(ex))
+      
       
 create_database()     
 conn, curs = open_database_connection()
 create_table()
+#create_settings_table()
 close_database_connection(conn, curs)
 
 print ("Weather Station started succesfully... Begin collecting data ")

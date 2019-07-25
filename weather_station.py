@@ -150,9 +150,9 @@ while True: # Loop Continuously
 
       humidity, temperature = read_temperature(temperature_pin)
       luminance = read_adc(adc_light_pin)
-      print("Storing Data")
       store_readings() # store data from sensors
-      print ("Storing Data", reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
+      print("Storing Data"),
+      print (reading_date, reading_time, temperature, humidity, wind_speed, wind_direction, pressure, luminance)
     
     loop += 1
     

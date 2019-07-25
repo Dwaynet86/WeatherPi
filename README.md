@@ -12,5 +12,5 @@ Goals
   - luminance (added)
   - air quality
 - weather camera
-- record conditions to db locally 
-- connect to wunderground or similar public service 
+- record conditions to db locally (added)
+- connect to wunderground or similar public service to upload recorded data

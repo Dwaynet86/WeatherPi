@@ -109,7 +109,7 @@ def create_table():
       try: 
         result = curs.execute("SHOW TABLES FROM {} LIKE 'weather_data';".format(db_name))
       
-        if result = 0: # Table does not exist 
+        if result == 0: # Table does not exist 
           print ("Building tables")
           curs.execute("CREATE TABLE {}.weather_data "
                "(id INT(11) UNSIGNED AUTO_INCREMENT, PRIMARY KEY (id),"

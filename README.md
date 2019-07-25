@@ -14,3 +14,4 @@ Goals
 - weather camera
 - record conditions to db locally (added)
 - connect to wunderground or similar public service to upload recorded data
+- change settings dynamically without restarting program
